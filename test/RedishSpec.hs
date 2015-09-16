@@ -17,9 +17,6 @@ parseReplySpec = do
     let getReply = nb "get"
     let setReply = nb "set"
 
-    let quickCheck s = (\s -> length (take 5 s) < 5)
-
-
     it "returns nothing with single bulk" $ do
       parseReply emptyReply `shouldBe` (Nothing)
     

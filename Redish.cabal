@@ -10,10 +10,33 @@ category:            Database
 build-type:          Simple
 cabal-version:       >=1.8
 
+library
+    hs-source-dirs:    src
+    exposed-modules:   Redish
+    build-depends:     base,
+                       stm,
+                       network,
+                       containers,
+                       mtl,
+                       transformers,
+                       attoparsec,
+                       bytestring
+    ghc-options:       -Wall -O2 -threaded -rtsopts -with-rtsopts=-N
+    default-language:  Haskell2010
+
 executable Redish
-  hs-source-dirs:    src
-  main-is:           Main.hs
-  build-depends:     base, stm, network, containers, mtl, transformers,
-                     attoparsec, bytestring
-  Ghc-Options:       -Wall -O2 -threaded -rtsopts -with-rtsopts=-N
-  Default-language:  Haskell2010
+  main-is:           src/Main.hs
+  build-depends:     base, 
+                     Redish
+  ghc-options:       -Wall -O2 -threaded -rtsopts -with-rtsopts=-N
+  default-language:  Haskell2010
+
+test-suite hspec
+    type:            exitcode-stdio-1.0
+    hs-source-dirs:  test
+    main-is:         Spec.hs
+    build-depends:   base,
+                     hspec,
+                     Redish,
+                     bytestring
+    ghs-options:     -Wall -O2 -threaded -rtsopts -with-rtsopts=-N

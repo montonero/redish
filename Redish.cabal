@@ -38,5 +38,6 @@ test-suite hspec
     build-depends:   base,
                      hspec,
                      Redish,
+                     QuickCheck,
                      bytestring
     ghs-options:     -Wall -O2 -threaded -rtsopts -with-rtsopts=-N

@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module RedishSpec where	
+module RedishSpec where 
 
 import Test.Hspec
 import Redish
@@ -30,4 +30,4 @@ parseReplySpec = do
 
 spec :: Spec
 spec = do
-	parseReplySpec
+  parseReplySpec

@@ -24,10 +24,10 @@ parseReplySpec = do
       parseReply (MultiBulk (Just [unknownReply])) `shouldBe` (Just Unknown)
 
     prop "get command in multibulk returns get a" $ \n -> do
-      parseReply (MultiBulk (Just [getReply, nb n])) `shouldBe` (Just (Get (pack n)))
+      parseReply (MultiBulk (Just [getReply, nb n])) === (Just (Get (pack n)))
 
     prop "set command in multibulk returns set a" $ \(n,v) -> do
-      parseReply (MultiBulk (Just [setReply, nb n, nb v])) `shouldBe` (Just (Set (pack n) (pack v)))
+      parseReply (MultiBulk (Just [setReply, nb n, nb v])) === (Just (Set (pack n) (pack v)))
 
 spec :: Spec
 spec = do
